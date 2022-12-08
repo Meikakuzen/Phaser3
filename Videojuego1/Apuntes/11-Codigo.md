@@ -1,3 +1,6 @@
+# CODIGO
+
+~~~js
 
 
 var config = {
@@ -143,3 +146,4 @@ function hitBomb(player, bomb){
 
     gameOver= true;
 }
+~~~
