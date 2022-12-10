@@ -3,7 +3,7 @@ export class SceneA extends Phaser.Scene{
         super("GameScene")
 
         this.score= 0
-        this.lives= 0
+        this.lives= 6
     }
 
     preload(){
@@ -38,10 +38,10 @@ export class SceneA extends Phaser.Scene{
             return
         }
         
-        box.input.enabled = false;
+        box.setInteractive(false)
         box.setVisible(false)
 
-        if(getData("badCrate")){
+        if(box.getData("badCrate")){
             this.lives--;
             this.registry.set("lives", this.lives)
         }else{

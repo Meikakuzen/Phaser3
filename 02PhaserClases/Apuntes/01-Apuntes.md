@@ -33,7 +33,7 @@ export class SceneA extends Phaser.Scene{
         super("GameScene")
 
         this.score= 0
-        this.lives= 0
+        this.lives= 6
     }
 
     preload(){
@@ -97,7 +97,7 @@ this.input.on("gameobjectup", this.clickHandler, this) //this es el contexto de 
         box.setInteractive(false);
         box.setVisible(false) //deja de ser interactivo y visible
 
-        if(getData("badCrate")){
+        if(box.getData("badCrate")){
             this.lives--;
             this.registry.set("lives", this.lives) //Las coloreadas quitan vida
         }else{
@@ -122,8 +122,8 @@ export class SceneB extends Phaser.Scene{
         const score= this.scene.get("GameScene").score
         const lives= this.scene.get("GameScene").lives
 
-        this.scoreText = this.add.text(10,10, "Score: 0", {font: "32px", fill: "#000"}) //los primeros parámetros son las coordenadas
-        this.livesText = this.add.text(10,40, "Lives: 6", {font:"32px", fill: "#000"})
+        this.scoreText = this.add.text(10,10, `Score: ${score}`, {font: "32px", fill: "#000"}) //los primeros parámetros son las coordenadas
+        this.livesText = this.add.text(10,40, `Lives: ${lives}` , {font:"32px", fill: "#000"})
 
         this.registry.events.on("changedata", this.updateData, this)
 

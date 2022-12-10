@@ -1,1 +1,0 @@
-# Falla la función de clicar sobre una estrella y se elimine
